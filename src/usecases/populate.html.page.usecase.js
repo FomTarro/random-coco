@@ -14,6 +14,7 @@ async function execute(logger, req, options){
     const template = new JSDOM(fs.readFileSync(path.join(AppConfig.WEB_TEMPLATE_DIR, 'index.html')));
     const doc = template.window.document;
     // navbar
+    doc.getElementById('meta-img').content = `${AppConfig.DOMAIN}/img/24mo_highres.png`;
 
     if(pageCodes.HOME == options.code){
         let video = {};
