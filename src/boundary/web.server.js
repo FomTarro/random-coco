@@ -57,6 +57,12 @@ async function setupRoutes(app){
         }
     });
 
+    app.get('/about', async (req, res) => {
+        const logger = new AppConfig.LOGGER.Logger({path: req.path});
+        const page = await AppConfig.POPULATE_HTML_PAGE.populateAboutPage(logger, req);
+        res.status(200).send(page);
+    });
+
     app.get(['/css*','/js*','/img*', '/audio*'], (req, res) => {
         res.sendFile(path.join(AppConfig.WEB_PUBLIC_DIR, req.path))
     });

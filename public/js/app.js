@@ -6,7 +6,11 @@ function rollRandom(){
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 'random');
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    audio.play();
+    try{
+        audio.play();
+    }catch(e){
+
+    }
     xhr.onload = () => {
         if(xhr.status != 200){
             //

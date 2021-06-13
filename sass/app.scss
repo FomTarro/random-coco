@@ -11,6 +11,7 @@ $black: #0d1b1e;
 
 html{
     font-family: monospace !important;
+    cursor: url("../img/asacoco.cur"), default;
 }
 
 main{
@@ -33,6 +34,8 @@ body{
 
 #main-container{
     padding-top: $base-margin;
+    margin: auto;
+    width: 90%;
 }
 
 .footer{
@@ -90,6 +93,10 @@ body{
     margin-top: $base-margin;
     margin-bottom: $base-margin;
     width: 85%;
+}
+
+.no-wrap{
+    flex-wrap: nowrap;
 }
 
 .border-box{

@@ -5,7 +5,7 @@ const path = require('path');
 
 const pageCodes = {
     get HOME(){return 'HOME'},
-    get VIDEO(){return 'VIDEO'},
+    get ERROR(){return 'ABOUT'},
     get ERROR(){return 'ERROR'},
 }
 
@@ -31,15 +31,28 @@ async function execute(logger, req, options){
         random.innerHTML = "rollRandom()";
         doc.getElementsByTagName('html')[0].appendChild(random);
        
-    }else if(pageCodes.VIDEO == options.code){
-        const videoUrl = getRandomVideoId();
-        doc.getElementById('video-iframe').src = videoUrl;
-
+    }else if(pageCodes.ABOUT == options.code){
+        doc.getElementById('video-container').remove();
+        doc.getElementById('alert-title').innerHTML = 'About';
+        doc.getElementById('alert-img').src = '../img/webmaster.png';
+        doc.getElementById('alert-desc').innerHTML = 
+        `This site is built and maintained by <b>Tom "Skeletom" Farro</b> (<a target=# href="https://www.twitter.com/fomtarro">FomTarro</a>), 
+        a loyal Tatsunoko until the end.
+        <br> 
+        <br> 
+        All video contents are owned by <b>Cover</b>, with subtitles provided gaciously by members of the community.
+        <br><br> 
+        In addition, this project is Open Source, and can be viewed in its entirety on
+        <a target=# href="https://github.com/FomTarro/random-coco">GitHub</a>. If you have a favorite clip you'd like to add, 
+        please make a pull request or DM the webmaster!
+        <br><br>
+        <b>Kaichou</b>, if you're reading this: you're incredible. Thank you for all you've done. For us, for your company, for your friends. 
+        You've shaped the world of VTubing for the better. We will never forget you.`
     }else if(pageCodes.ERROR == options.code){
         doc.getElementById('video-container').remove();
         doc.getElementById('alert-title').innerHTML = options.title;
         doc.getElementById('alert-desc').innerHTML = options.message;
-        doc.getElementById('alert-img').remove();
+        doc.getElementById('alert-img').src='../img/kaigai_niki_sad.png';
     }
     
     return template.serialize();
@@ -49,6 +62,12 @@ async function populateHomePage(logger, req, query){
     return await execute(logger, req, {
         code: pageCodes.HOME,
         id: query != undefined ? query.id : undefined
+    })
+}
+
+async function populateAboutPage(logger, req){
+    return await execute(logger, req, {
+        code: pageCodes.ABOUT,
     })
 }
 
@@ -62,4 +81,5 @@ async function populateErrorPage(logger, req, errorTitle, errorMessage){
 }
 
 module.exports.populateHomePage = populateHomePage;
+module.exports.populateAboutPage = populateAboutPage;
 module.exports.populateErrorPage = populateErrorPage;

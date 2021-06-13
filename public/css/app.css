@@ -1,5 +1,6 @@
 html {
   font-family: monospace !important;
+  cursor: url("../img/asacoco.cur"), default;
 }
 
 main {
@@ -22,6 +23,8 @@ body {
 
 #main-container {
   padding-top: 1em;
+  margin: auto;
+  width: 90%;
 }
 
 .footer {
@@ -78,6 +81,10 @@ body {
   margin-top: 1em;
   margin-bottom: 1em;
   width: 85%;
+}
+
+.no-wrap {
+  flex-wrap: nowrap;
 }
 
 .border-box {
