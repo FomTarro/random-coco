@@ -61,6 +61,10 @@ async function setupRoutes(app){
         res.sendFile(path.join(AppConfig.WEB_PUBLIC_DIR, req.path))
     });
 
+    app.get('/favicon.ico', (req, res) => {
+        res.sendFile(path.join(AppConfig.WEB_PUBLIC_DIR, req.path))
+    });
+
     // custom 404
     app.get('*', async (req, res) => {
         // log so we have a record of what URL folks are trying to hit

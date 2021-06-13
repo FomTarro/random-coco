@@ -1,11 +1,12 @@
 console.log(':^)')
- // var audio = new Audio('audio/next-meme.mp3');
+var audio = new Audio('audio/next_meme.mp3');
+audio.volume = 0.35;
 
 function rollRandom(){
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 'random');
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    // audio.play();
+    audio.play();
     xhr.onload = () => {
         if(xhr.status != 200){
             //
