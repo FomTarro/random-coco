@@ -1,0 +1,55 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta id='meta-img' property="og:image" content="">
+    <meta id='meta-title' property="og:title" content="Random Coco">
+    <meta id='meta-desc' property="og:description" content="Your daily dose of Asacoco!">
+    <meta name="twitter:card" content="summary">
+    <title>Random Coco</title>
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/skeleton.css">
+    <link rel="stylesheet" type="text/css" href="/css/app.css">
+</head>
+    <body>
+        <div class='scrolling-bg'></div>
+        <main>
+            <div id='main-container' class='center-align row'>
+                <div id='navbar' class='center-align row'>
+                    [<span id='navbar-home'><a href='/'>home</a></span>] - 
+                    [<span id='navbar-search'><a href='/search'>search</a></span>] - 
+                    [<span id='navbar-about'><a href='/about'>about</a></span>] 
+                </div>
+                <div id='alert-container' class='row'>
+                    <div id='alert-text' class='standard-width'>
+                        <img id='alert-img' class='alert-icon' src="img/24mo_highres.png"/>
+                        <h2 id='alert-title'>GMMF!</h2>
+                        <div id='alert-desc'>
+                            Come get your daily dose of <b>Asacoco</b>! Hit the <b>Random Button</b> 
+                            to watch a random clip of everyone's favorite gangimari dragon.
+                            <br><br>
+                            <!-- Site owned, built and maintained by <b>Skeletom</b> (<a target=# href="https://www.twitter.com/fomtarro">FomTarro</a>). 
+                            All video contents are owned by <b>Cover</b>, with subtitles provided gaciously by members of the community.
+                            <br><br>
+                            In addition, this project is Open Source, and can be viewed in its entirety on 
+                            <a target=# href="https://github.com/FomTarro/random-coco">GitHub</a>. if you have a favorite clip you'd like to add, 
+                            please make a pull request or DM the webmaster! -->
+                        </div>
+                    </div>
+                </div>
+                <div id='video-container' class='row'>
+                    <div id='video-content' class='standard-width row'>
+                        <iframe id='video-iframe' class='border-box' width="520" height="315" src="https://www.youtube.com/embed/p2rmk4kYkts" 
+                            title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class='row'><span><b>video tags: </b><span id='video-tags'>yakuza, legend</span></span></div>
+                    <img src='../img/horn_left.png'/><div class='buttons' onclick=rollRandom() type="button">RANDOM</div><img src='../img/horn_right.png'/>
+                </div>
+            </div>
+            <div class='footer'>
+                <!-- footer -->
+            </div>
+        </main>
+    </body>
+    <script src='../js/app.js'></script>
+</html>

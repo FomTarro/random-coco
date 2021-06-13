@@ -1,0 +1,142 @@
+$icon-width: 128px;
+$standard-width: 520px;
+$base-margin: 1em;
+$base-font-size: 10pt;
+
+$default-pixel-height: 48px;
+$default-pixel-height-small: 38px;
+
+$orange: orange;
+$black: #0d1b1e;
+
+html{
+    font-family: monospace !important;
+}
+
+main{
+    font-size: $base-font-size;
+}
+
+li{
+    word-wrap: break-word;
+}
+
+h2{
+    margin-top: 0;
+}
+
+body{
+    font-family: "Courier New", Courier, monospace;
+    background-color: whitesmoke;
+    margin: auto;
+}
+
+#main-container{
+    padding-top: $base-margin;
+}
+
+.footer{
+    margin-top: calc(2* #{$base-margin});
+}
+
+.standard-width{
+    width:  $standard-width;
+}
+
+.alert-icon{
+    height: $icon-width;
+    width: $icon-width;
+    float: left;
+    margin-right: $base-margin;
+}
+
+#alert-container{
+    display: flex;
+    margin-bottom: $base-margin;
+}
+
+#alert-title{
+    margin: 0;
+}
+
+#alert-desc{
+    max-width: calc(400px +  #{$icon-width});
+    margin-top: calc(#{$base-margin}/2);
+}
+
+#video-iframe{
+    background-color: whitesmoke;
+}
+
+.row{
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    margin-bottom: 1em;
+    flex-wrap: wrap;
+}
+
+.center-align{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.center-align-title{
+    @extend .center-align;
+    margin: auto;
+    margin-top: $base-margin;
+    margin-bottom: $base-margin;
+    width: 85%;
+}
+
+.border-box{
+    border: $black 2px solid;
+    box-sizing: border-box;
+}
+
+.buttons{
+    background: $orange;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+    text-align: center;
+    height: $default-pixel-height-small;
+    line-height: $default-pixel-height-small;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 2px solid $black;
+    width: calc(#{$standard-width}/2);
+}
+
+.inputs{
+    @extend .buttons;
+    border-radius: 0px;
+    height: $default-pixel-height !important;
+    line-height: $default-pixel-height !important;
+}
+
+
+
+@keyframes anim-scroll {
+    0% {
+      background-position : 0px 0px
+    }
+    100% {
+      background-position : -256px -256px
+    }
+}
+  
+.scrolling-bg {
+    overflow: hidden;
+    overflow-y: hidden;
+    opacity: 0.15;
+    z-index: -100;
+    position: absolute;
+    display:block;
+    width:100%;
+    height:100%;
+    background-image:url("../img/tile_2.png");
+    animation: anim-scroll 4s linear infinite;
+}

@@ -1,0 +1,126 @@
+html {
+  font-family: monospace !important;
+}
+
+main {
+  font-size: 10pt;
+}
+
+li {
+  word-wrap: break-word;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+body {
+  font-family: "Courier New", Courier, monospace;
+  background-color: whitesmoke;
+  margin: auto;
+}
+
+#main-container {
+  padding-top: 1em;
+}
+
+.footer {
+  margin-top: calc(2* 1em);
+}
+
+.standard-width {
+  width: 520px;
+}
+
+.alert-icon {
+  height: 128px;
+  width: 128px;
+  float: left;
+  margin-right: 1em;
+}
+
+#alert-container {
+  display: flex;
+  margin-bottom: 1em;
+}
+
+#alert-title {
+  margin: 0;
+}
+
+#alert-desc {
+  max-width: calc(400px + 128px);
+  margin-top: calc(1em/2);
+}
+
+#video-iframe {
+  background-color: whitesmoke;
+}
+
+.row {
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  display: flex;
+  margin-bottom: 1em;
+  flex-wrap: wrap;
+}
+
+.center-align, .center-align-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.center-align-title {
+  margin: auto;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  width: 85%;
+}
+
+.border-box {
+  border: #0d1b1e 2px solid;
+  box-sizing: border-box;
+}
+
+.buttons, .inputs {
+  background: orange;
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+  text-align: center;
+  height: 38px;
+  line-height: 38px;
+  font-weight: bold;
+  border-radius: 10px;
+  border: 2px solid #0d1b1e;
+  width: calc(520px/2);
+}
+
+.inputs {
+  border-radius: 0px;
+  height: 48px !important;
+  line-height: 48px !important;
+}
+
+@keyframes anim-scroll {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: -256px -256px;
+  }
+}
+.scrolling-bg {
+  overflow: hidden;
+  overflow-y: hidden;
+  opacity: 0.15;
+  z-index: -100;
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/tile_2.png");
+  animation: anim-scroll 4s linear infinite;
+}
