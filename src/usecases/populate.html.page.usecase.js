@@ -16,8 +16,6 @@ async function execute(logger, req, options){
     // navbar
     const imgSrc = `${AppConfig.DOMAIN}/img/24mo_highres.png`;;
     doc.getElementById('meta-img').content = imgSrc;
-    console.log(imgSrc);
-
     if(pageCodes.HOME == options.code){
         let video = {};
         try{

@@ -95,7 +95,7 @@ body {
   font-weight: bold;
   border-radius: 10px;
   border: 2px solid #0d1b1e;
-  width: calc(520px/2);
+  width: calc(520px/3);
 }
 
 .inputs {
