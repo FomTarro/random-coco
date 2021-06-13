@@ -63,6 +63,12 @@ async function setupRoutes(app){
         res.status(200).send(page);
     });
 
+    app.get('/search', async (req, res) => {
+        const logger = new AppConfig.LOGGER.Logger({path: req.path});
+        const page = await AppConfig.POPULATE_HTML_PAGE.populateSearchPage(logger, req, req.query);
+        res.status(200).send(page);
+    });
+
     app.get(['/css*','/js*','/img*', '/audio*'], (req, res) => {
         res.sendFile(path.join(AppConfig.WEB_PUBLIC_DIR, req.path))
     });

@@ -35,9 +35,28 @@ function getSpecificVideoData(id){
     };
 }
 
+function getListOfVideoData(searchTerms){
+    const list = [];
+    if(searchTerms){
+        searchTerms = searchTerms.toLowerCase()
+        for (let key of videoDataMap.keys()) {
+            const video = getSpecificVideoData(key);
+            if(video.title.toLowerCase().includes(searchTerms) || video.tags.includes(searchTerms.toLowerCase())){
+                list.push(video);
+            }
+        }
+    }else{
+        for (let key of videoDataMap.keys()) {
+            list.push(getSpecificVideoData(key));
+        }
+    }
+    return list;
+}
+
 function getIdFromUrl(url){
     return url.substr(url.lastIndexOf('=')+1);
 }
 
 module.exports.getRandomVideoData = getRandomVideoData;
 module.exports.getSpecificVideoData = getSpecificVideoData;
+module.exports.getListOfVideoData = getListOfVideoData;

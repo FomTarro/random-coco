@@ -8,7 +8,7 @@ $default-pixel-height-small: 38px;
 
 $orange: #ff935f;
 $yellow: #fafb5e;
-$black: #393544;
+$black: black;
 
 html{
     cursor: url("../img/asacoco.cur"), default;
@@ -72,6 +72,10 @@ body{
     background-color: whitesmoke;
 }
 
+#list{
+    display: block;
+}
+
 .row{
     flex-direction: row;
     justify-content: center;
@@ -113,12 +117,16 @@ body{
     height: $default-pixel-height-small;
     line-height: $default-pixel-height-small;
     font-weight: bold;
-    border-radius: 10px;
+    border-radius: 4px;
     border: 2px solid $black;
     width: calc(#{$standard-width}/3);
 }
-#random-button{
-    background: linear-gradient(100deg, $orange 15.00%, $yellow 15.00%, $yellow 20.0%, $orange 20.00%) no-repeat right;
+// #random-button{
+//     background: linear-gradient(100deg, $orange 15.00%, $yellow 15.00%, $yellow 20.0%, $orange 20.00%) no-repeat right;
+// }
+
+#search-button{
+    width: calc(#{$standard-width}/4);
 }
 
 .inputs{
@@ -127,6 +135,14 @@ body{
     height: $default-pixel-height !important;
     line-height: $default-pixel-height !important;
 }
+
+// button{
+//     color: $black;
+// }
+
+// input{
+//     @extend .buttons;
+// }
 
 
 

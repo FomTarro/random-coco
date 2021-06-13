@@ -28,6 +28,19 @@
                         </div>
                     </div>
                 </div>
+                <div id='list-container' class='row'>
+                    <div id='list-content' class='standard-width row'>
+                        <form method="GET" enctype="multipart/form-data">
+                            <input type="text" id="search" name="search" placeholder="Search for a clip...">
+                            <button id='search-button' class='buttons' type="submit" value="Search">SEARCH</button>
+                        </form>
+                        <div class='row'>
+                            <ul id='list' class='standard-width'>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 <div id='video-container' class='row'>
                     <div id='video-content' class='standard-width row'>
                         <iframe id='video-iframe' class='border-box' width="520" height="315" src="https://www.youtube.com/embed/p2rmk4kYkts" 
@@ -38,7 +51,7 @@
                     <div class='row'><span><b>video tags: </b><span id='video-tags'>yakuza, legend</span></span></div>
                     <div class='row center-align no-wrap'>
                         <img src='../img/horn_left.png'/>
-                        <div class='buttons' id='random-button' onclick=rollRandom() type="button">RANDOM</div>
+                        <button class='buttons' id='random-button' onclick=rollRandom() type="button">RANDOM</button>
                         <img src='../img/horn_right.png'/>
                     </div>
                 </div>
