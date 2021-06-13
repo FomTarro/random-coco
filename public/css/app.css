@@ -1,5 +1,4 @@
 html {
-  font-family: monospace !important;
   cursor: url("../img/asacoco.cur"), default;
 }
 
@@ -13,10 +12,11 @@ li {
 
 h2 {
   margin-top: 0;
+  text-transform: uppercase !important;
 }
 
 body {
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Comic Sans MS", Arial, cursive, sans-serif;
   background-color: whitesmoke;
   margin: auto;
 }
@@ -44,7 +44,7 @@ body {
 
 #alert-container {
   display: flex;
-  margin-bottom: 1em;
+  margin-bottom: calc(2*1em);
 }
 
 #alert-title {
@@ -88,12 +88,12 @@ body {
 }
 
 .border-box {
-  border: #0d1b1e 2px solid;
+  border: #393544 2px solid;
   box-sizing: border-box;
 }
 
 .buttons, .inputs {
-  background: orange;
+  background: #ff935f;
   margin-top: 0.25em;
   margin-bottom: 0.25em;
   text-align: center;
@@ -101,8 +101,12 @@ body {
   line-height: 38px;
   font-weight: bold;
   border-radius: 10px;
-  border: 2px solid #0d1b1e;
+  border: 2px solid #393544;
   width: calc(520px/3);
+}
+
+#random-button {
+  background: linear-gradient(100deg, #ff935f 15%, #fafb5e 15%, #fafb5e 20%, #ff935f 20%) no-repeat right;
 }
 
 .inputs {
