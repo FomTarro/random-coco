@@ -24,7 +24,7 @@
                         <h2 id='alert-title'>GMMF!</h2>
                         <div id='alert-desc'>
                             Come get your daily dose of <b>Asacoco</b>! Hit <b>Random</b> 
-                            to watch a random clip of everyone's favorite gangimari dragon.
+                            to watch a clip of everyone's favorite gangimari dragon.
                         </div>
                     </div>
                 </div>
@@ -34,8 +34,11 @@
                             <input type="text" id="search" name="search" placeholder="Search for a clip...">
                             <button id='search-button' class='buttons' type="submit" value="Search">SEARCH</button>
                         </form>
+                        <div class=row>
+                            <span><b><span id='video-count'>100</span></b> clips found!</span>
+                        </div>
                         <div class='row'>
-                            <ul id='list' class='standard-width'>
+                            <ul id='list'>
 
                             </ul>
                         </div>
@@ -48,12 +51,12 @@
                             allowfullscreen>
                         </iframe>
                     </div>
-                    <div class='row'><span><b>video tags: </b><span id='video-tags'>yakuza, legend</span></span></div>
                     <div class='row center-align no-wrap'>
                         <img src='../img/horn_left.png'/>
                         <button class='buttons' id='random-button' onclick=rollRandom() type="button">RANDOM</button>
                         <img src='../img/horn_right.png'/>
                     </div>
+                    <div id='tags' class='row'><span><b>video tags: </b><span id='video-tags'>yakuza, legend</span></span></div>
                 </div>
             </div>
             <div class='footer'>

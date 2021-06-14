@@ -24,7 +24,7 @@ async function execute(logger, req, options){
             if(options.id){
                 video = AppConfig.GET_VIDEO_DATA.getSpecificVideoData(options.id);
                 doc.getElementById('video-iframe').src = video.url;
-                doc.getElementById('video-tags').innerHTML = video.tags;
+                doc.getElementById('video-tags').innerHTML = video.anchors;
             }else{
                 const random = doc.createElement('script');
                 random.innerHTML = "rollRandom()";
@@ -38,12 +38,15 @@ async function execute(logger, req, options){
     }else if(pageCodes.SEARCH == options.code){
         doc.getElementById('video-container').remove();
         doc.getElementById('alert-title').innerHTML = 'Search';
-        doc.getElementById('alert-desc').innerHTML = 'Looking for a specific memory? You can search clips by title and tag here.';
+        doc.getElementById('alert-desc').innerHTML = 
+        `Looking for a specific memory? You can search clips by title and tag here. 
+        By default, all clips are listed.`;
         const videos = AppConfig.GET_VIDEO_DATA.getListOfVideoData(options.search);
         const list = doc.getElementById('list');
         videos.forEach(video => {
             list.appendChild(makeFileListEntry(doc, video));
         });
+        doc.getElementById('video-count').innerHTML = videos.length;
     }
     else if(pageCodes.ABOUT == options.code){
         doc.getElementById('video-container').remove();
@@ -78,12 +81,11 @@ function makeFileListEntry(doc, video){
     const li = doc.createElement('li');
     const item = doc.createElement('span');
     const anchor = doc.createElement('a');
-    const fileName = video.title;
     const relPath = `../?id=${video.id}`;
     anchor.href = relPath
-    anchor.innerHTML = fileName;
+    anchor.innerHTML = `<b>${video.title}</b>`;
     const tags = doc.createElement('div');
-    tags.innerHTML = `<b>tags: </b> ${video.tags}`;
+    tags.innerHTML = `<b>tags: </b> ${video.anchors}`;
     item.appendChild(anchor);
     item.appendChild(tags);
     li.appendChild(item);

@@ -17,8 +17,8 @@ function rollRandom(){
         }else{
             var response = JSON.parse(xhr.response);
             window.document.getElementById('video-iframe').src = response.url;
-            window.document.getElementById('video-tags').innerHTML = response.tags;
-            window.history.pushState('page2', '...', '?id='+response.id);
+            window.document.getElementById('video-tags').innerHTML = response.anchors;
+            window.history.pushState('page', '...', '?id='+response.id);
         }
     };
     xhr.send();

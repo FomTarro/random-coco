@@ -20,6 +20,7 @@ function getRandomVideoData(){
     return {
         title: video.title,
         tags: video.tags,
+        anchors: tagsToAnchors(video.tags),
         url: `https://www.youtube.com/embed/${id}`,
         id: id
     }
@@ -30,9 +31,18 @@ function getSpecificVideoData(id){
     return {
         title: video.title,
         tags: video.tags,
+        anchors: tagsToAnchors(video.tags),
         url: `https://www.youtube.com/embed/${id}`,
         id: id
     };
+}
+
+function tagsToAnchors(tags){
+    let anchors = "";
+    tags.forEach(tag => {
+        anchors = anchors + `<a href='../search?search=${tag}'>${tag}</a>, `;
+    })
+    return anchors;
 }
 
 function getListOfVideoData(searchTerms){

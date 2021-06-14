@@ -1,5 +1,6 @@
 html {
   cursor: url("../img/asacoco.cur"), default;
+  overflow-y: overlay;
 }
 
 main {
@@ -62,6 +63,12 @@ body {
 
 #list {
   display: block;
+  width: 520px;
+}
+
+#tags {
+  display: block;
+  width: 520px;
 }
 
 .row {
@@ -130,12 +137,12 @@ body {
 .scrolling-bg {
   overflow: hidden;
   overflow-y: hidden;
-  opacity: 0.15;
+  opacity: 0.1;
   z-index: -100;
-  position: absolute;
+  position: fixed;
   display: block;
   width: 100%;
   height: 100%;
   background-image: url("../img/tile_2.png");
-  animation: anim-scroll 4s linear infinite;
+  animation: anim-scroll 16s linear infinite;
 }
