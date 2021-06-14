@@ -123,12 +123,12 @@ function getChannel(auth) {
                     favorite: new Set(),
                 });
                 item['2'].split(',').forEach(tag => {
-                    map.get(id).tags.add(tag.toLowerCase());
+                    map.get(id).tags.add(tag.trim().toLowerCase());
                 })
                 map.get(id).favorite.add(item['3']);
             }else{
                 item['2'].split(',').forEach(tag => {
-                    map.get(id).tags.add(tag.toLowerCase());
+                    map.get(id).tags.add(tag.trim().toLowerCase());
                 })
                 map.get(id).favorite.add(item['3']);
             }
