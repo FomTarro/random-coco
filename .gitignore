@@ -110,3 +110,5 @@ dist
 
 tools/credentials/
 tools/client_secret.json
+tools/out.json
+tools/video-list.csv

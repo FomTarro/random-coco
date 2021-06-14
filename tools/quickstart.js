@@ -100,26 +100,68 @@ function storeToken(token) {
  * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
  */
 function getChannel(auth) {
-  var service = google.youtube('v3');
-  service.videos.list({
-    auth: auth,
-    part: [ 
-        'snippet',
-        'contentDetails' 
-    ],
-    id: [
-        'XxEFEjiAeM4'
-    ]
-  }, function(err, response) {
-    if (err) {
-      console.log('The API returned an error: ' + err);
-      return;
-    }
-    var channels = response.data.items;
-    if (channels.length == 0) {
-      console.log('No channel found.');
-    } else {
-      console.log(response.data.items);
-    }
-  });
+    var service = google.youtube('v3');
+    // const csv = fs.readFileSync('video-list.csv', 'utf8').split('\n');
+    const csv = require('csv-parser')
+    const results = [];
+
+    fs.createReadStream('video-list.csv')
+    .pipe(csv({
+        mapHeaders: ({ header, index }) => index
+    }))
+    .on('data', (data) => results.push(data))
+    .on('end', () => {
+        console.log(results);
+        const map = new Map();
+        results.forEach(item => {
+            const id = item['1'].split('=')[1];
+            if(map.has(id) == false){
+                map.set(id, {
+                    id: id,
+                    url: item['1'],
+                    tags: new Set(),
+                    favorite: new Set(),
+                });
+                item['2'].split(',').forEach(tag => {
+                    map.get(id).tags.add(tag.toLowerCase());
+                })
+                map.get(id).favorite.add(item['3']);
+            }else{
+                item['2'].split(',').forEach(tag => {
+                    map.get(id).tags.add(tag.toLowerCase());
+                })
+                map.get(id).favorite.add(item['3']);
+            }
+        })
+        console.log(map);
+        service.videos.list({
+            auth: auth,
+            part: [ 
+                'id',
+                'snippet',
+                'contentDetails' 
+            ],
+            id: [...map.keys()]
+        }, function(err, response) {
+            if (err) {
+                console.log('The API returned an error: ' + err);
+                return;
+            }
+            var channels = response.data.items;
+            if (channels.length == 0) {
+                console.log('No channel found.');
+            } else {
+                const results = response.data.items.map(item => {
+                    return {
+                        id: item.id,
+                        url: map.get(item.id).url,
+                        title: item.snippet.title,
+                        tags: [...map.get(item.id).tags],
+                        favorite: [...map.get(item.id).favorite]
+                    }
+                });
+                fs.writeFileSync('./out.json', JSON.stringify(results));
+            }
+        });
+    });
 }
