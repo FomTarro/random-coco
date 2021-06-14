@@ -111,7 +111,6 @@ function getChannel(auth) {
     }))
     .on('data', (data) => results.push(data))
     .on('end', () => {
-        console.log(results);
         const map = new Map();
         results.forEach(item => {
             const id = item['1'].split('=')[1];
@@ -133,35 +132,63 @@ function getChannel(auth) {
                 map.get(id).favorite.add(item['3']);
             }
         })
-        console.log(map);
-        service.videos.list({
-            auth: auth,
-            part: [ 
-                'id',
-                'snippet',
-                'contentDetails' 
-            ],
-            id: [...map.keys()]
-        }, function(err, response) {
-            if (err) {
-                console.log('The API returned an error: ' + err);
-                return;
-            }
-            var channels = response.data.items;
-            if (channels.length == 0) {
-                console.log('No channel found.');
-            } else {
-                const results = response.data.items.map(item => {
-                    return {
-                        id: item.id,
-                        url: map.get(item.id).url,
-                        title: item.snippet.title,
-                        tags: [...map.get(item.id).tags],
-                        favorite: [...map.get(item.id).favorite]
-                    }
-                });
-                fs.writeFileSync('./out.json', JSON.stringify(results));
-            }
-        });
+        const keys = [...map.keys()];
+        const chunks = [];
+        var chunk = [];
+        for(var i = 0; i < map.size; i++){
+          if(chunk.length >= 50){
+            chunks.push(chunk);
+            chunk = [];
+          }
+          chunk.push(keys[i]);
+        }
+        if(chunk.length > 0){
+          chunks.push(chunk);
+        }
+        const aggregate = []
+        call(chunks.length-1, chunks, map, aggregate, service, auth);
     });
+}
+
+function call(index, chunks, map, aggregate, service, auth){
+    // TODO: this needs to recurse
+    console.log(`processing chunk ${index} of ${chunks.length-1}`);
+    console.log(chunks[index]);
+    service.videos.list({
+      auth: auth,
+      part: [ 
+          'id',
+          'snippet',
+          'contentDetails' 
+      ],
+      id: chunks[index]
+  }, function(err, response) {
+      if (err) {
+          console.log('The API returned an error: ' + err);
+          return;
+      }
+      var channels = response.data.items;
+      if (channels.length == 0) {
+          console.log('No channel found.');
+      } else {
+        console.log(`lookup complete for chunk ${index}`);
+          const results = response.data.items.map(item => {
+              return {
+                  id: item.id,
+                  url: map.get(item.id).url,
+                  title: item.snippet.title,
+                  tags: [...map.get(item.id).tags],
+                  favorite: [...map.get(item.id).favorite]
+              }
+          });
+          console.log(`processing complete for chunk ${index}`);
+          aggregate.push(results);
+          if(index <= 0){
+            fs.writeFileSync('./out.json', JSON.stringify(aggregate.flat(), null, 2));
+            console.log('done!')
+          }else{
+            call(index-1, chunks, map, aggregate, service, auth);
+          }
+      }
+  });
 }

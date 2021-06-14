@@ -19,6 +19,7 @@ async function execute(logger, req, options){
     doc.getElementById('meta-img').content = imgSrc;
     if(pageCodes.HOME == options.code){
         doc.getElementById('list-container').remove();
+        doc.getElementById('video-count').innerHTML = AppConfig.GET_VIDEO_DATA.TOTAL_VIDEO_COUNT();
         let video = {};
         try{
             if(options.id){

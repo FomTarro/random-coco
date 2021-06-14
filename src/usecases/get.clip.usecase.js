@@ -4,7 +4,14 @@ const path = require('path');
 
 const videoDataArray = JSON.parse(fs.readFileSync(path.join(AppConfig.WEB_TEMPLATE_DIR, 'clips.json'), 'utf8'));
 const videoDataMap = new Map();
-videoDataArray.map(obj => {videoDataMap.set(getIdFromUrl(obj.url), obj)});
+videoDataArray.map(obj => {
+    if(videoDataMap.has(getIdFromUrl(obj.url))){
+        console.log(`duplicate entry: ${obj.url}`)
+    }
+    videoDataMap.set(getIdFromUrl(obj.url), obj
+)});
+
+function TOTAL_VIDEO_COUNT(){ return videoDataMap.size };
 
 function getRandomVideoData(){
     let index = Math.floor(Math.random() * videoDataMap.size);
@@ -70,3 +77,4 @@ function getIdFromUrl(url){
 module.exports.getRandomVideoData = getRandomVideoData;
 module.exports.getSpecificVideoData = getSpecificVideoData;
 module.exports.getListOfVideoData = getListOfVideoData;
+module.exports.TOTAL_VIDEO_COUNT = TOTAL_VIDEO_COUNT;
