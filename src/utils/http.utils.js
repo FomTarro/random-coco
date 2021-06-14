@@ -15,22 +15,6 @@ const { AppConfig } = require('../../app.config');
         path: options.endpoint,
         method: options.method 
     };
-    // use token if one given
-    if(options.token){
-        formattedOptions.headers = {
-            'Authorization': 'Bearer ' + options.token,
-            'Client-Id': AppConfig.TWITCH_CLIENT_ID,
-        }
-    }
-    // else get token for scope
-    else if(options.scope){
-        formattedOptions.headers = {
-            'Authorization': 'Bearer ' + (options.scope == 'no_scope' ? 
-            await getTokenNoScope(logger, AppConfig.TWITCH_CLIENT_ID, AppConfig.TWITCH_CLIENT_SECRET) : 
-            await getTokenScope(logger, options.scope, AppConfig.TWITCH_CLIENT_ID, AppConfig.TWITCH_CLIENT_SECRET)),
-            'Client-Id': AppConfig.TWITCH_CLIENT_ID,
-        }
-    }
 
     return new Promise(function(resolve, reject){
         const buffers = [];
@@ -82,48 +66,6 @@ async function request(options, buffers, log, resolve, reject){
     }catch(e){
         reject(e);
     }
-}
-
-async function getTokenScope(logger, scope, clientId, clientSecret){
-    var token = undefined;
-    await webRequest(
-        logger,
-        {
-            host: `id.twitch.tv`,
-            endpoint: `/oauth2/token?client_id=${clientId}&client_secret=${clientSecret}&grant_type=client_credentials&scope=${scope}`,
-            method: 'POST',
-        },
-        (buffer) => { 
-            token = JSON.parse(buffer); 
-        },
-        (err) => { 
-            token = {
-                access_token: 'ERROR_TOKEN'
-            };
-        },
-    );
-    return token.access_token;
-}
-
-async function getTokenNoScope(logger, clientId, clientSecret){
-    var token = undefined;
-    await webRequest(
-        logger,
-        {
-            host: `id.twitch.tv`,
-            endpoint: `/oauth2/token?client_id=${clientId}&client_secret=${clientSecret}&grant_type=client_credentials`,
-            method: 'POST',
-        },
-        (buffer) => { 
-            token = JSON.parse(buffer); 
-        },
-        (err) => { 
-            token = {
-                access_token: 'ERROR_TOKEN'
-            }
-        },
-    );
-    return token.access_token;
 }
 
 module.exports.request = webRequest;

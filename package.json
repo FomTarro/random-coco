@@ -31,16 +31,14 @@
     "husky": "^3.1.0"
   },
   "dependencies": {
-    "aws-sdk": "^2.904.0",
     "dotenv": "8.2.0",
     "express": "^4.17.1",
-    "express-fileupload": "^1.2.1",
+    "express-rate-limit": "^5.2.6",
     "express-session": "1.17.1",
+    "google-auth-library": "^7.1.2",
+    "googleapis": "^76.0.0",
     "jsdom": "16.4.0",
-    "passport": "^0.3.2",
-    "passport-oauth": "^1.0.0",
-    "request": "^2.81.0",
-    "express-rate-limit": "^5.2.6"
+    "request": "^2.81.0"
   },
   "husky": {
     "hooks": {

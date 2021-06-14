@@ -107,3 +107,6 @@ dist
 .env
 
 .sass-cache/
+
+tools/credentials/
+tools/client_secret.json
