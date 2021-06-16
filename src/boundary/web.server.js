@@ -50,7 +50,7 @@ async function setupRoutes(app){
     app.get(`/random`, (req, res) => {
         const logger = new AppConfig.LOGGER.Logger({path: req.path});
         try{
-            res.status(200).send(AppConfig.GET_VIDEO_DATA.getRandomVideoData());
+            res.status(200).send(AppConfig.GET_VIDEO_DATA.getRandomVideoData(req.query.language));
         }catch(e){
             logger.error(e);
             res.status(500).send({});

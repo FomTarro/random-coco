@@ -47,39 +47,39 @@ async function execute(logger, req, options){
 
         // pagination
         const PER_PAGE = 20;
-        const chunks = [];
+        const pages = [];
         var chunk = [];
         videos.forEach(video => {
             if(chunk.length >= PER_PAGE){
-                chunks.push(chunk);
+                pages.push(chunk);
                 chunk = [];
             }
-            chunk.push(makeFileListEntry(doc, video))
+            chunk.push(video);
         });
         if(chunk.length > 0){
-            chunks.push(chunk);
+            pages.push(chunk);
         }
         var index = -1;
-        if(options.page && options.page > 0 && chunks.length > options.page){
+        if(options.page && options.page > 0 && pages.length > options.page){
             index = options.page;
         }else{
-            if(chunks.length > 0){
+            if(pages.length > 0){
                 index = 0;
             }
         }
 
-        const page = index >= 0 ? chunks[index] : [];
+        const page = index >= 0 ? pages[index] : [];
         const searchParam = options.search ? `&search=${options.search}` : '';
-        const next = Math.min(chunks.length-1, parseInt(index)+1);
+        const next = Math.min(pages.length-1, parseInt(index)+1);
         const last = Math.max(0, parseInt(index)-1);
 
-        doc.getElementById('page-count').innerHTML = `page ${index}/${chunks.length-1}`;
-        doc.getElementById('page-next').href = `../search?page=${next}${searchParam}`
-        doc.getElementById('page-previous').href = `../search?page=${last}${searchParam}`
+        doc.getElementById('page-count').innerHTML = `page ${index}/${pages.length-1}`;
+        doc.getElementById('page-next').href = `../search?page=${next}${searchParam}`;
+        doc.getElementById('page-previous').href = `../search?page=${last}${searchParam}`;
 
-        page.forEach(li => {
-            list.appendChild(li);
-        })
+        page.forEach(video => {
+            list.appendChild(makeFileListEntry(doc, video));
+        });
         doc.getElementById('video-count').innerHTML = videos.length;
     }
     else if(pageCodes.ABOUT == options.code){

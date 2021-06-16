@@ -143,6 +143,11 @@ body{
     line-height: $default-pixel-height !important;
 }
 
+.dropdowns{
+    @extend .buttons;
+    background-color: white;
+}
+
 // button{
 //     color: $black;
 // }

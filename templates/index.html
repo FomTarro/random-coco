@@ -50,7 +50,7 @@
                         <div class='center-align row'>
                             [<span><a id='page-previous' href='/search'>back</a></span>] - 
                             [<span id='page-count'>page 1/1</span>] - 
-                            [<span><a id='page-next' href='/search'>next</a></span>]
+                            [<span><a id='page-next' href='/search'>next</a></span>] 
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,15 @@
                     </div>
                     <div class='row center-align no-wrap'>
                         <img src='../img/horn_left.png'/>
-                        <button class='buttons' id='random-button' onclick=rollRandom() type="button">RANDOM</button>
+                        <div>
+                            <select class ='row buttons dropdowns' name='language' id='language'>
+                                <option value="" disabled selected hidden>Preferred Language</option>
+                                <option value="any">Any</option>
+                                <option value="english">English</option>
+                                <option value="japanese">Japanese</option>
+                              </select>
+                            <button class='row buttons' id='random-button' onclick=rollRandom() type="button">RANDOM</button>
+                        </div>
                         <img src='../img/horn_right.png'/>
                     </div>
                     <div id='tags' class='row'><span><b>video tags: </b><span id='video-tags'>yakuza, legend</span></span></div>

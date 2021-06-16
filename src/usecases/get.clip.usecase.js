@@ -2,35 +2,33 @@ const { AppConfig } = require('../../app.config');
 const fs = require('fs');
 const path = require('path');
 
-const videoDataArray = JSON.parse(fs.readFileSync(path.join(AppConfig.WEB_TEMPLATE_DIR, 'clips.json'), 'utf8'));
 const videoDataMap = new Map();
-videoDataArray.map(obj => {
+JSON.parse(fs.readFileSync(path.join(AppConfig.WEB_TEMPLATE_DIR, 'clips.json'), 'utf8'))
+.map(obj => {
     if(videoDataMap.has(getIdFromUrl(obj.url))){
         console.log(`duplicate entry: ${obj.url}`)
     }
     videoDataMap.set(getIdFromUrl(obj.url), obj
 )});
 
+const engVideos = getListOfVideoData('english');
+const jpnVideos = getListOfVideoData('japanese');
+const allVideos = getListOfVideoData();
+
 function TOTAL_VIDEO_COUNT(){ return videoDataMap.size };
 
-function getRandomVideoData(){
-    let index = Math.floor(Math.random() * videoDataMap.size);
-    let cntr = 0;
-    let id = undefined;
-    for (let key of videoDataMap.keys()) {
-        if (cntr++ === index) {
-            id = key;
-            break;
-        }
+function getRandomVideoData(language){
+    let videos = [];
+    if(language === 'english'){
+        videos = engVideos;
+    }else if(language === 'japanese'){
+        videos = jpnVideos;
+    }else{
+        videos = allVideos;
     }
-    const video = videoDataMap.get(id);
-    return {
-        title: video.title,
-        tags: video.tags,
-        anchors: tagsToAnchors(video.tags),
-        url: `https://www.youtube.com/embed/${id}`,
-        id: id
-    }
+    const index = Math.floor(Math.random() * videos.length);
+    return videos[index];
+
 }
 
 function getSpecificVideoData(id){

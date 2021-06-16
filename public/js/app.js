@@ -4,7 +4,9 @@ audio.volume = 0.35;
 
 function rollRandom(){
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'random');
+    var dropdown = document.getElementById('language');
+    var lang = dropdown.options[dropdown.selectedIndex].value;
+    xhr.open('GET', 'random?language='+lang);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     try{
         audio.play();
