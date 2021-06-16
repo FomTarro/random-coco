@@ -13,6 +13,7 @@ JSON.parse(fs.readFileSync(path.join(AppConfig.WEB_TEMPLATE_DIR, 'clips.json'), 
 
 const engVideos = getListOfVideoData('english');
 const jpnVideos = getListOfVideoData('japanese');
+const memeVideos = getListOfVideoData('shitty japanese');
 const allVideos = getListOfVideoData();
 
 function TOTAL_VIDEO_COUNT(){ return videoDataMap.size };
@@ -23,7 +24,10 @@ function getRandomVideoData(language){
         videos = engVideos;
     }else if(language === 'japanese'){
         videos = jpnVideos;
-    }else{
+    }else if(language === 'shitty-japanese'){
+        videos = memeVideos;
+    } 
+    else{
         videos = allVideos;
     }
     const index = Math.floor(Math.random() * videos.length);
