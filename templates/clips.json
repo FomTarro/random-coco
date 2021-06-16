@@ -29,10 +29,15 @@
       "japanglish",
       "english",
       "en",
+      "subs",
+      "subtitled",
+      "sakura",
       "miko",
       "elite",
       "funny",
+      "statue",
       "liberty",
+      "butterfly",
       "america",
       "american"
     ]
@@ -41,8 +46,12 @@
     "title": "[Eng Sub] Coco makes a promise to Sora for after graduation. (Kiryu Coco)[Hololive]",
     "url": "https://www.youtube.com/watch?v=im-PJY-0tyg",
     "tags": [
+      "japanese",
+      "jp",
       "english",
       "en",
+      "subs",
+      "subtitled",
       "sora",
       "tokino",
       "promise",
@@ -58,8 +67,12 @@
     "title": "【Hololive】Seaside Reflections (Aqua・Coco Discussion) 【English Sub】",
     "url": "https://www.youtube.com/watch?v=jEP-paRxWKA",
     "tags": [
+      "japanese",
+      "jp",
       "english",
       "en",
+      "subs",
+      "subtitled",
       "aqua",
       "minato",
       "collab",
@@ -76,8 +89,12 @@
     "title": "Miko Calls Coco During Stream and Asks An Important Question【ENG Sub/Hololive】",
     "url": "https://www.youtube.com/watch?v=suLa_pmV10A",
     "tags": [
+      "japanese",
+      "jp",
       "english",
       "en",
+      "subs",
+      "subtitled",
       "miko",
       "sakura",
       "ecchi",
@@ -93,9 +110,14 @@
     "title": "【ENG Sub】Kiryu Coco - Coco's nationality gets EXPOSED?",
     "url": "https://www.youtube.com/watch?v=XxEFEjiAeM4",
     "tags": [
+      "japanese",
+      "jp",
       "english",
       "en",
+      "subs",
+      "subtitled",
       "hips",
+      "hips don't lie",
       "sexy",
       "america",
       "usda",
@@ -107,8 +129,12 @@
     "title": "17 Minutes of Marine and Coco Bullying Each Other in Mario Party【ENG SUB】",
     "url": "https://www.youtube.com/watch?v=7DehTUp86jg",
     "tags": [
+      "japanese",
+      "jp",
       "english",
       "en",
+      "subs",
+      "subtitled",
       "senchou",
       "houshou",
       "marine",
@@ -459,24 +485,15 @@
     ]
   },
   {
-    "id": "f61mOLiX0O4",
-    "url": "https://www.youtube.com/watch?v=f61mOLiX0O4",
-    "title": "ココ会長の卒業についてと、これまでの葛藤を赤裸々に語る星街すいせい【桐生ココ/星街すいせい/ホロライブ/切り抜き】",
-    "tags": [
-      "jp",
-      "japanese"
-    ],
-    "favorite": [
-      ""
-    ]
-  },
-  {
     "id": "WKSypsNvZGY",
     "url": "https://www.youtube.com/watch?v=WKSypsNvZGY",
     "title": "ココ会長を必死に説得してストーカーみたいになってた潤羽るしあ【桐生ココ/潤羽るしあ/ホロライブ/切り抜き】",
     "tags": [
       "jp",
-      "japanese"
+      "japanese",
+      "uruha",
+      "rushia",
+      "stalker"
     ],
     "favorite": [
       ""
@@ -491,6 +508,8 @@
       "japanese",
       "minecraft",
       "4th",
+      "collab",
+      "4th generation",
       "himemori",
       "luna",
       "amane",
@@ -510,7 +529,13 @@
     "title": "【嬉しいお知らせ】REDDIT MEME REVIEWは終わらない!!【桐生ココ/天音かなた/ホロライブ 切り抜き】",
     "tags": [
       "jp",
-      "japanese"
+      "japanese",
+      "reddit",
+      "meme",
+      "review",
+      "amane",
+      "kanata",
+      "minecraft"
     ],
     "favorite": [
       ""
@@ -522,7 +547,12 @@
     "title": "『桐生ココ』はホロライブに残り続ける。リスナーを安心させるためにココ会長が話す言葉があったかい【桐生ココ/ホロライブ 切り抜き】",
     "tags": [
       "jp",
-      "japanese"
+      "japanese",
+      "superchat",
+      "bittersweet",
+      "legacy",
+      "legend",
+      "onsen"
     ],
     "favorite": [
       ""
@@ -534,7 +564,13 @@
     "title": "ココ会長がトイレに行っている間に暴露話をするかなたん【ホロライブ切り抜き/桐生ココ/天音かなた】",
     "tags": [
       "jp",
-      "japanese"
+      "japanese",
+      "minecraft",
+      "collab",
+      "amane",
+      "kanata",
+      "candid",
+      "bathroom"
     ],
     "favorite": [
       ""
@@ -546,19 +582,15 @@
     "title": "2人で思い出を振り返り、「生涯で出会うかどうか」というレベルの相性の良さを語る桐生ココ・天音かなた【ホロライブ切り抜き】",
     "tags": [
       "jp",
-      "japanese"
-    ],
-    "favorite": [
-      ""
-    ]
-  },
-  {
-    "id": "IbtAwaYuon4",
-    "url": "https://www.youtube.com/watch?v=IbtAwaYuon4",
-    "title": "桐生ココ卒業発表に対する、ホロメンのTwitter反応まとめpart2【ホロライブ切り抜き】",
-    "tags": [
-      "jp",
-      "japanese"
+      "japanese",
+      "minecraft",
+      "collab",
+      "amane",
+      "kanata",
+      "tete",
+      "memories",
+      "bittersweet",
+      "wholesome"
     ],
     "favorite": [
       ""
@@ -570,7 +602,13 @@
     "title": "ココ会長のメン限配信をこっそり聞いて、すぐに励ましの長文メッセージを送っていた小鳥遊キアラ【桐生ココ/ホロライブ/切り抜き】",
     "tags": [
       "jp",
-      "japanese"
+      "japanese",
+      "tete",
+      "superchat",
+      "kiara",
+      "takanashi",
+      "graduation",
+      "holoEN"
     ],
     "favorite": [
       ""
@@ -582,7 +620,15 @@
     "title": "【清楚天使】わためぇに『TENGA』を買って来させようとするかなたん(ココ会長の軌跡3)【桐生ココ/天音かなた/角巻わため/ホロライブ 切り抜き】",
     "tags": [
       "jp",
-      "japanese"
+      "japanese",
+      "yakuza",
+      "amane",
+      "kanata",
+      "tsunomaki",
+      "watame",
+      "collab",
+      "tenga",
+      "funny"
     ],
     "favorite": [
       ""
@@ -594,7 +640,12 @@
     "title": "【桐生ココ復帰の可能性】ココ会長が『ホロライブへ復帰する可能性』は\"0\"ではない【桐生ココ/ホロライブ 切り抜き】",
     "tags": [
       "jp",
-      "japanese"
+      "japanese",
+      "bittersweet",
+      "superchat",
+      "graduation",
+      "legacy",
+      "YAGOO"
     ],
     "favorite": [
       ""
@@ -606,7 +657,11 @@
     "title": "【金玉の音】どうしても『金玉の音』が聴きたいココ会長が聴診器で音を聴いた結果(桐生ココの軌跡4)【桐生ココ/ホロライブ 切り抜き】",
     "tags": [
       "jp",
-      "japanese"
+      "japanese",
+      "asacoco",
+      "funny",
+      "stethoscope",
+      "ASMR"
     ],
     "favorite": [
       ""
@@ -618,31 +673,16 @@
     "title": "卒業までの間、とんでもない罰ゲームを実行するよう提案するココ会長、罰ゲームを受けるのは...【ホロライブ切り抜き/桐生ココ/白上フブキ/不知火フレア/角巻わため】",
     "tags": [
       "jp",
-      "japanese"
-    ],
-    "favorite": [
-      ""
-    ]
-  },
-  {
-    "id": "LZJm_b_9AvM",
-    "url": "https://www.youtube.com/watch?v=LZJm_b_9AvM",
-    "title": "ココ会長の卒業について、自分の気持ちを語るみこち【ホロライブ切り抜き/さくらみこ/桐生ココ】",
-    "tags": [
-      "jp",
-      "japanese"
-    ],
-    "favorite": [
-      ""
-    ]
-  },
-  {
-    "id": "P_IsGmnGlc8",
-    "url": "https://www.youtube.com/watch?v=P_IsGmnGlc8",
-    "title": "運営から卒業の話を口封じされていた桐生ココ【切り抜き ホロライブ 】",
-    "tags": [
-      "jp",
-      "japanese"
+      "japanese",
+      "collab",
+      "shirakami",
+      "fubuki",
+      "tsunomaki",
+      "watame",
+      "shiranui",
+      "flare",
+      "quest rooms",
+      "funny"
     ],
     "favorite": [
       ""
@@ -654,7 +694,16 @@
     "title": "バカタレ用OPにココ会長の静止画を混ぜ、イタズラしまくるも本人に勘付かれる白上フブキ【ホロライブ切り抜き】",
     "tags": [
       "jp",
-      "japanese"
+      "japanese",
+      "collab",
+      "shirakami",
+      "fubuki",
+      "tsunomaki",
+      "watame",
+      "shiranui",
+      "flare",
+      "quest rooms",
+      "funny"
     ],
     "favorite": [
       ""
@@ -666,7 +715,16 @@
     "title": "罰ゲームのウ●コから逃れるため、文字通り蹴落とし合う桐生ココ・角巻わため【ホロライブ切り抜き】",
     "tags": [
       "jp",
-      "japanese"
+      "japanese",
+      "collab",
+      "shirakami",
+      "fubuki",
+      "tsunomaki",
+      "watame",
+      "shiranui",
+      "flare",
+      "quest rooms",
+      "funny"
     ],
     "favorite": [
       ""
@@ -678,7 +736,13 @@
     "title": "卒業する桐生ココを元気づけるために不器用ながらもメッセージを送っていたのに、本人に割と辛辣に言われる宝鐘マリン【ホロライブ切り抜き】",
     "tags": [
       "jp",
-      "japanese"
+      "japanese",
+      "bittersweet",
+      "graduation",
+      "superchat",
+      "senchou",
+      "houshou",
+      "marine"
     ],
     "favorite": [
       ""
@@ -690,7 +754,17 @@
     "title": "ホロライブ4期生、デビュー前の思い出話／ココとかなたが語る4期生の印象",
     "tags": [
       "jp",
-      "japanese"
+      "japanese",
+      "minecraft",
+      "collab",
+      "amane",
+      "kanata",
+      "tete",
+      "memories",
+      "bittersweet",
+      "wholesome",
+      "debut",
+      "impression"
     ],
     "favorite": [
       ""
@@ -702,7 +776,8 @@
     "title": "ココ会長に認知されてると思いきや微妙に人違いだったなめたけ【桐生ココ/ホロライブ切り抜き】",
     "tags": [
       "jp",
-      "japanese"
+      "japanese",
+      "superchat"
     ],
     "favorite": [
       ""
@@ -714,19 +789,16 @@
     "title": "【龍VS羊】ドラゴン相手に戦いを挑み下剋上を狙うクソザコ毛玉【桐生ココ/角巻わため/ホロライブ/切り抜き】",
     "tags": [
       "jp",
-      "japanese"
-    ],
-    "favorite": [
-      ""
-    ]
-  },
-  {
-    "id": "oTuuSF_1Xy4",
-    "url": "https://www.youtube.com/watch?v=oTuuSF_1Xy4",
-    "title": "【辞めない理由】ココ会長の卒業で不安がるリスナーを安心させるわためぇの想い【角巻わため/桐生ココ/ホロライブ 切り抜き】",
-    "tags": [
-      "jp",
-      "japanese"
+      "japanese",
+      "collab",
+      "shirakami",
+      "fubuki",
+      "tsunomaki",
+      "watame",
+      "shiranui",
+      "flare",
+      "quest rooms",
+      "funny"
     ],
     "favorite": [
       ""
@@ -738,7 +810,17 @@
     "title": "【会長!?】アメちゃんにとんでもない日本語を教えるココ会長になぜか感謝するアメちゃん【桐生ココ/ワトソン・アメリア/Watson Amelia/ホロライブ 切り抜き】",
     "tags": [
       "jp",
-      "japanese"
+      "japanese",
+      "subtitled",
+      "english",
+      "en",
+      "shitty japanese",
+      "watson",
+      "amelia",
+      "reddit",
+      "meme",
+      "review",
+      "funny"
     ],
     "favorite": [
       ""
@@ -756,7 +838,8 @@
       "himemori",
       "luna",
       "impression",
-      "imitation"
+      "imitation",
+      "graduation"
     ],
     "favorite": [
       ""
@@ -768,19 +851,12 @@
     "title": "【清楚天使】『ソープランドってなに?』かなたんの質問に的確に回答するココ会長と分かった(分かってない)かなたん(桐生ココの軌跡5)【桐生ココ/天音かなた/ホロライブ 切り抜き】",
     "tags": [
       "jp",
-      "japanese"
-    ],
-    "favorite": [
-      ""
-    ]
-  },
-  {
-    "id": "B8DNHH9gtsM",
-    "url": "https://www.youtube.com/watch?v=B8DNHH9gtsM",
-    "title": "大神ミオによる半年前の占い結果が当てはまり過ぎている件【切り抜き ホロライブ 桐生ココ 】",
-    "tags": [
-      "jp",
-      "japanese"
+      "japanese",
+      "yakuza",
+      "amane",
+      "kanata",
+      "collab",
+      "funny"
     ],
     "favorite": [
       ""
@@ -792,7 +868,10 @@
     "title": "収益化が剥奪された酔っ払い船長に辛辣なココ会長【切り抜き ホロライブ 宝鐘マリン 桐生ココ】",
     "tags": [
       "jp",
-      "japanese"
+      "japanese",
+      "superchat",
+      "houshou",
+      "marine"
     ],
     "favorite": [
       ""
@@ -804,7 +883,13 @@
     "title": "角巻わためとのこれまでの思い出話をしつつ、大きな感謝と尊敬の念を抱く桐生ココ【ホロライブ切り抜き】",
     "tags": [
       "jp",
-      "japanese"
+      "japanese",
+      "minecraft",
+      "4th",
+      "4th generation",
+      "tsunomaki",
+      "watame",
+      "memories"
     ],
     "favorite": [
       ""
@@ -816,7 +901,13 @@
     "title": "【人生のパートナー】『残りの人生全て』をかなたんと一緒に(ココ会長の軌跡6)【桐生ココ/天音かなた/ホロライブ 切り抜き】",
     "tags": [
       "jp",
-      "japanese"
+      "japanese",
+      "marshmallow",
+      "tete",
+      "amane",
+      "kanata",
+      "holohouse",
+      "wholesome"
     ],
     "favorite": [
       ""
