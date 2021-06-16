@@ -44,9 +44,42 @@ async function execute(logger, req, options){
         By default, all clips are listed.`;
         const videos = AppConfig.GET_VIDEO_DATA.getListOfVideoData(options.search);
         const list = doc.getElementById('list');
+
+        // pagination
+        const PER_PAGE = 20;
+        const chunks = [];
+        var chunk = [];
         videos.forEach(video => {
-            list.appendChild(makeFileListEntry(doc, video));
+            if(chunk.length >= PER_PAGE){
+                chunks.push(chunk);
+                chunk = [];
+            }
+            chunk.push(makeFileListEntry(doc, video))
         });
+        if(chunk.length > 0){
+            chunks.push(chunk);
+        }
+        var index = -1;
+        if(options.page && options.page > 0 && chunks.length > options.page){
+            index = options.page;
+        }else{
+            if(chunks.length > 0){
+                index = 0;
+            }
+        }
+
+        const page = index >= 0 ? chunks[index] : [];
+        const searchParam = options.search ? `&search=${options.search}` : '';
+        const next = Math.min(chunks.length-1, parseInt(index)+1);
+        const last = Math.max(0, parseInt(index)-1);
+
+        doc.getElementById('page-count').innerHTML = `page ${index}/${chunks.length-1}`;
+        doc.getElementById('page-next').href = `../search?page=${next}${searchParam}`
+        doc.getElementById('page-previous').href = `../search?page=${last}${searchParam}`
+
+        page.forEach(li => {
+            list.appendChild(li);
+        })
         doc.getElementById('video-count').innerHTML = videos.length;
     }
     else if(pageCodes.ABOUT == options.code){
@@ -106,7 +139,8 @@ async function populateHomePage(logger, req, query){
 async function populateSearchPage(logger, req, query){
     return await execute(logger, req, {
         code: pageCodes.SEARCH,
-        search: query != undefined ? query.search : undefined
+        search: query != undefined ? query.search : undefined,
+        page: query != undefined ? query.page : undefined
     })
 }
 
