@@ -25,7 +25,9 @@ async function execute(logger, req, options){
             if(options.id){
                 video = AppConfig.GET_VIDEO_DATA.getSpecificVideoData(options.id);
                 doc.getElementById('video-iframe').src = video.url;
-                doc.getElementById('video-tags').innerHTML = video.anchors;
+                doc.getElementById('video-tags').innerHTML = video.anchors;                
+                doc.getElementById('video-submitters').innerHTML = video.favorites
+
             }else{
                 const random = doc.createElement('script');
                 random.innerHTML = "rollRandom()";

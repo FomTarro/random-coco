@@ -1,4 +1,4 @@
-console.log(':^)')
+console.log(':^)');
 var audio = new Audio('audio/next_meme.mp3');
 audio.volume = 0.35;
 
