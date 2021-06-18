@@ -25,14 +25,14 @@ async function execute(logger, req, options){
             if(options.id){
                 video = AppConfig.GET_VIDEO_DATA.getSpecificVideoData(options.id);
                 doc.getElementById('video-iframe').src = video.url;
-                doc.getElementById('video-tags').innerHTML = video.anchors;                
-                doc.getElementById('video-submitters').innerHTML = video.favorites
+                doc.getElementById('video-tags').innerHTML = video.anchors;          
+                doc.getElementById('video-submitters').innerHTML = video.favorites;
 
             }else{
                 const random = doc.createElement('script');
                 random.innerHTML = "rollRandom()";
-                doc.getElementsByTagName('html')[0].appendChild(random);
-            }
+                doc.getElementsByTagName('html')[0].appendChild(random);             
+            }   
         }catch(e){
             logger.error(e);
             return await populateErrorPage(logger, req, '404', `The requested video could not be found.`);

@@ -43,7 +43,7 @@ function getSpecificVideoData(id){
         anchors: tagsToAnchors(video.tags),
         url: `https://www.youtube.com/embed/${id}`,
         id: id,
-        favorites: video.favorite && video.favorite.length > 0 ? video.favorite : 'an anonymous Tatsunoko'
+        favorites: video.favorite && video.favorite.length > 0 && video.favorite[0].length > 0 ? video.favorite : 'an anonymous Tatsunoko'
     };
 }
 
