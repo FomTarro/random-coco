@@ -24,14 +24,16 @@ async function execute(logger, req, options){
         try{
             if(options.id){
                 video = AppConfig.GET_VIDEO_DATA.getSpecificVideoData(options.id);
+                doc.getElementById('video-background').classList.add('hide');
+                doc.getElementById('video-iframe').classList.remove('hide');
                 doc.getElementById('video-iframe').src = video.url;
                 doc.getElementById('video-tags').innerHTML = video.anchors;          
                 doc.getElementById('video-submitters').innerHTML = video.favorites;
 
             }else{
-                const random = doc.createElement('script');
-                random.innerHTML = "rollRandom()";
-                doc.getElementsByTagName('html')[0].appendChild(random);             
+                // const random = doc.createElement('script');
+                // random.innerHTML = "rollRandom()";
+                // doc.getElementsByTagName('html')[0].appendChild(random);             
             }   
         }catch(e){
             logger.error(e);

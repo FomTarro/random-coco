@@ -18,8 +18,12 @@ function rollRandom(){
             //
         }else{
             var response = JSON.parse(xhr.response);
-            window.document.getElementById('video-iframe').src = response.url;
+            window.document.getElementById('video-background').classList.add('hide');
+            var iframe = window.document.getElementById('video-iframe');
+            iframe.classList.remove('hide');
+            iframe.src = response.url;
             window.document.getElementById('video-tags').innerHTML = response.anchors;
+            window.document.getElementById('video-submitters').innerHTML = response.favorites;
             window.history.pushState('page', '...', '?id='+response.id);
         }
     };
