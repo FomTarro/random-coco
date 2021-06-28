@@ -97,6 +97,10 @@ body{
     height: 100%;
 }
 
+#video-question-mark{
+    animation: anim-float 2s ease-in-out infinite alternate;
+}
+
 #list{
     display: block;
     width: $standard-width;
@@ -187,7 +191,7 @@ body{
 }
 
 #random-button:hover {
-    animation: shake 0.3s cubic-bezier(.36,.07,.19,.97) both infinite;
+    animation: anim-shake 0.3s cubic-bezier(.36,.07,.19,.97) both infinite;
     transform: translate3d(0, 0, 0);
     background-image: url("../img/gata.png");
     background-color: white;
@@ -195,7 +199,7 @@ body{
 
 }
 
-@keyframes shake {
+@keyframes anim-shake {
     0% {
         background-position : 0px 0px
     }
@@ -224,4 +228,14 @@ body{
     100% {
       background-position : -256px -256px
     }
+}
+
+@keyframes anim-float {
+    from {
+        transform: rotate(-15deg);
+    }
+    to {
+        transform: rotate(15deg);
+    }
+
 }
