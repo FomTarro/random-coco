@@ -7,6 +7,7 @@ const pageCodes = {
     get HOME(){return 'HOME'},
     get SEARCH(){return 'SEARCH'},
     get ABOUT(){return 'ABOUT'},
+    get AFFILIATES(){return 'AFFILIATES'},
     get ERROR(){return 'ERROR'},
 }
 
@@ -19,6 +20,7 @@ async function execute(logger, req, options){
     doc.getElementById('meta-img').content = imgSrc;
     if(pageCodes.HOME == options.code){
         doc.getElementById('list-container').remove();
+        doc.getElementById('affiliates-container').remove();
         doc.getElementById('video-count').innerHTML = AppConfig.GET_VIDEO_DATA.TOTAL_VIDEO_COUNT();
         let video = {};
         try{
@@ -42,6 +44,7 @@ async function execute(logger, req, options){
        
     }else if(pageCodes.SEARCH == options.code){
         doc.getElementById('video-container').remove();
+        doc.getElementById('affiliates-container').remove();
         doc.getElementById('alert-title').innerHTML = 'Search';
         doc.getElementById('alert-desc').innerHTML = 
         `Looking for a specific memory? You can search clips by title and tag here. 
@@ -89,6 +92,7 @@ async function execute(logger, req, options){
     else if(pageCodes.ABOUT == options.code){
         doc.getElementById('video-container').remove();
         doc.getElementById('list-container').remove();
+        doc.getElementById('affiliates-container').remove();
         doc.getElementById('alert-title').innerHTML = 'About';
         doc.getElementById('alert-img').src = '../img/webmaster.png';
         doc.getElementById('alert-desc').innerHTML = 
@@ -107,9 +111,22 @@ async function execute(logger, req, options){
         <br><br>
         <b>Kaichou</b>, if you're reading this: you're incredible. Thank you for all you've done. For us, for your company, for your friends. 
         You've shaped the world of VTubing for the better. We will never forget you.`
-    }else if(pageCodes.ERROR == options.code){
+    }else if(pageCodes.AFFILIATES == options.code){
         doc.getElementById('video-container').remove();
         doc.getElementById('list-container').remove();
+        doc.getElementById('alert-title').innerHTML = "Affiliates"
+        doc.getElementById('alert-desc').innerHTML = `
+        Following the sudden news of Coco's graduation, there was an immediate and <b>tremendous</b> outpouring of projects from Tatsunokos the world over, 
+        as everyone put their <b>hearts and souls</b> on the line one last time.
+        <br>
+        <br>
+        Many of these projects, like this one, are <b>websites</b>! The ones that I am aware of, and had permission to share, are listed below! 
+        Please give them a visit and enjoy these community efforts!`
+    }
+    else if(pageCodes.ERROR == options.code){
+        doc.getElementById('video-container').remove();
+        doc.getElementById('list-container').remove();
+        doc.getElementById('affiliates-container').remove();
         doc.getElementById('alert-title').innerHTML = options.title;
         doc.getElementById('alert-desc').innerHTML = options.message;
         doc.getElementById('alert-img').src='../img/kaigai_niki_sad.png';
@@ -154,6 +171,12 @@ async function populateAboutPage(logger, req){
     })
 }
 
+async function populateAffiliatesPage(logger, req){
+    return await execute(logger, req, {
+        code: pageCodes.AFFILIATES,
+    })
+}
+
 async function populateErrorPage(logger, req, errorTitle, errorMessage){
     logger.error(`ERROR PAGE ${req.path}`);
     return await execute(logger, req, {
@@ -166,4 +189,5 @@ async function populateErrorPage(logger, req, errorTitle, errorMessage){
 module.exports.populateHomePage = populateHomePage;
 module.exports.populateSearchPage = populateSearchPage;
 module.exports.populateAboutPage = populateAboutPage;
+module.exports.populateAffiliatesPage = populateAffiliatesPage;
 module.exports.populateErrorPage = populateErrorPage;

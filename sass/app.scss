@@ -19,6 +19,10 @@ main{
     font-size: $base-font-size;
 }
 
+ul{
+    width: $standard-width;
+}
+
 li{
     word-wrap: break-word;
 }

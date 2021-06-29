@@ -7,6 +7,10 @@ main {
   font-size: 10pt;
 }
 
+ul {
+  width: 520px;
+}
+
 li {
   word-wrap: break-word;
 }
