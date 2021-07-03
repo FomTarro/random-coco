@@ -191,7 +191,7 @@ body {
 }
 
 #feedback-desc {
-  width: 100%;
+  width: 520px;
   height: calc(520px/1.5);
 }
 
