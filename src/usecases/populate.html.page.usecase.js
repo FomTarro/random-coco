@@ -111,7 +111,7 @@ async function execute(logger, req, options){
         <br><br>
         If you have a clip you'd like to submit, or just want to suggest additional tags for an existing clip, 
         please fill out our <a target=# href='https://docs.google.com/forms/d/e/1FAIpQLSc8cr0nRAxYLr1tglCW9jX-m-KgUVSdC3Msf_90-62Cd9R1ag/viewform?usp=sf_link'>
-        Google Form</a>.
+        Google Form</a>. if you have feedback, please submit it through the <a href='../feedback'> Feedback Form</a>!
         <br><br>
         <b>Kaichou</b>, if you're reading this: you're incredible. Thank you for all you've done. For us, for your company, for your friends. 
         You've shaped the world of VTubing for the better. We will never forget you.`
