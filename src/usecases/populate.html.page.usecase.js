@@ -118,6 +118,7 @@ async function execute(logger, req, options){
     }else if(pageCodes.AFFILIATES == options.code){
         doc.getElementById('video-container').remove();
         doc.getElementById('list-container').remove();
+        doc.getElementById('feedback-container').remove();
         doc.getElementById('alert-title').innerHTML = "Affiliates"
         doc.getElementById('alert-desc').innerHTML = `
         Following the sudden news of Coco's graduation, there was an immediate and <b>tremendous</b> outpouring of projects from Tatsunokos the world over, 
