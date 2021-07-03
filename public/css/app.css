@@ -186,6 +186,15 @@ body {
   perspective: 1000px;
 }
 
+#feedback-form {
+  width: 100%;
+}
+
+#feedback-desc {
+  width: 100%;
+  height: calc(520px/1.5);
+}
+
 @keyframes anim-shake {
   0% {
     background-position: 0px 0px;

@@ -17,7 +17,8 @@
                     [<span id='navbar-home'><a href='/'>home</a></span>] - 
                     [<span id='navbar-search'><a href='/search'>search</a></span>] - 
                     [<span id='navbar-about'><a href='/about'>about</a></span>] -
-                    [<span id='navbar-affiliates'><a href='/affiliates'>affiliate sites</a></span>] 
+                    [<span id='navbar-affiliates'><a href='/affiliates'>affiliate</a></span>] - 
+                    [<span id='navbar-affiliates'><a href='/feedback'>feedback</a></span>] 
                 </div>
                 <div id='alert-container' class='row'>
                     <div id='alert-text' class='standard-width'>
@@ -74,7 +75,7 @@
                                 <option value="english">English</option>
                                 <option value="japanese">Japanese</option>
                                 <option value="shitty-japanese">Shitty Japanese</option>
-                              </select>
+                            </select>
                             <button class='row buttons' id='random-button' onclick=rollRandom() type="button">RANDOM</button>
                         </div>
                         <img src='../img/horn_right.png'/>
@@ -110,7 +111,30 @@
                                 </div>
                             </span>
                         </li>
+                        <li>
+                            <span>
+                                <b><a href='https://nextme.me/'' target=blank>nextme.me</a></b>
+                                <div>
+                                    A farewell gift dedicated to Kiryu Coco, our beloved dragon of Hololive, organized by the Kiryu-Kai and Main Hololive fan server!
+                                </div>
+                            </span>
+                        </li>
                     </ul>
+                </div>
+                <div id='feedback-container' class='row'>
+                    <form id='feedback-form' action="/feedback" method="POST" enctype="application/x-www-form-urlencoded">
+                        <div class='row'>
+                            <input class="feedback-inputs" id="feedback-name" name="feedback-name" type="text" 
+                            placeholder="what is your feedback?" aria-label="Feedback Title" aria-required="true">
+                        </div>
+                        <div class='row'>
+                            <textarea class="feedback-inputs" id="feedback-desc" name="feedback-body" rows="10" cols="10" 
+                            placeholder='please elaborate!' aria-label="Feedback Description" aria-required="true"></textarea>
+                        </div>
+                        <div class='row'>
+                            <button id='feedback-button' class='buttons' type="submit" value="Submit">Submit</button>
+                        </div>
+                    </form>
                 </div>
             </div>
             <div class='footer'>

@@ -203,6 +203,15 @@ body{
 
 }
 
+#feedback-form{
+    width: 100%;
+}
+
+#feedback-desc{
+    width: 100%;
+    height: calc(#{$standard-width}/1.5);
+}
+
 @keyframes anim-shake {
     0% {
         background-position : 0px 0px

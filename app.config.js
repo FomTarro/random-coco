@@ -10,6 +10,8 @@ const appConfig = {
     get SESSION_SECRET(){ return process.env.session_secret; },
     get RATE_LIMIT_WINDOW_MS(){return process.env.rate_limit_window_ms || 15 * 60 * 1000;},
     get RATE_LIMIT_MAX_REQUESTS(){return process.env.rate_limit_max_requests || 100;},
+    get TRELLO_KEY(){ return process.env.trello_api_key; },
+    get TRELLO_TOKEN(){ return process.env.trello_api_token; },
 
     get WEB_PUBLIC_DIR(){ return path.join(__dirname, 'public'); },
     get WEB_TEMPLATE_DIR(){ return path.join(__dirname, 'templates'); },
@@ -17,6 +19,7 @@ const appConfig = {
     // use cases
     get POPULATE_HTML_PAGE(){ return (require('./src/usecases/populate.html.page.usecase'))},
     get GET_VIDEO_DATA(){ return (require('./src/usecases/get.clip.usecase'))},
+    get POST_FEEDBACK(){ return (require('./src/usecases/post.feedback.usecase'))},
 
     // models
     get WEB_SERVER() { return require('./src/boundary/web.server'); },

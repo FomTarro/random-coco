@@ -8,6 +8,7 @@ const pageCodes = {
     get SEARCH(){return 'SEARCH'},
     get ABOUT(){return 'ABOUT'},
     get AFFILIATES(){return 'AFFILIATES'},
+    get FEEDBACK(){return 'FEEDBACK'},
     get ERROR(){return 'ERROR'},
 }
 
@@ -21,6 +22,7 @@ async function execute(logger, req, options){
     if(pageCodes.HOME == options.code){
         doc.getElementById('list-container').remove();
         doc.getElementById('affiliates-container').remove();
+        doc.getElementById('feedback-container').remove();
         doc.getElementById('video-count').innerHTML = AppConfig.GET_VIDEO_DATA.TOTAL_VIDEO_COUNT();
         let video = {};
         try{
@@ -45,6 +47,7 @@ async function execute(logger, req, options){
     }else if(pageCodes.SEARCH == options.code){
         doc.getElementById('video-container').remove();
         doc.getElementById('affiliates-container').remove();
+        doc.getElementById('feedback-container').remove();
         doc.getElementById('alert-title').innerHTML = 'Search';
         doc.getElementById('alert-desc').innerHTML = 
         `Looking for a specific memory? You can search clips by title and tag here. 
@@ -93,6 +96,7 @@ async function execute(logger, req, options){
         doc.getElementById('video-container').remove();
         doc.getElementById('list-container').remove();
         doc.getElementById('affiliates-container').remove();
+        doc.getElementById('feedback-container').remove();
         doc.getElementById('alert-title').innerHTML = 'About';
         doc.getElementById('alert-img').src = '../img/webmaster.png';
         doc.getElementById('alert-desc').innerHTML = 
@@ -122,11 +126,25 @@ async function execute(logger, req, options){
         <br>
         Many of these projects, like this one, are <b>websites</b>! The ones that I am aware of, and had permission to share, are listed below! 
         Please give them a visit and enjoy these community efforts!`
+    }else if(pageCodes.FEEDBACK == options.code){
+        doc.getElementById('video-container').remove();
+        doc.getElementById('list-container').remove();
+        doc.getElementById('affiliates-container').remove();
+        doc.getElementById('alert-title').innerHTML = "Feedback"
+        doc.getElementById('alert-desc').innerHTML = `
+        Thank you for taking the time to use and enjoy this site. Of course, it can always be better!
+        <br>
+        <br>
+        If you have any points of feedback or messages for the webmaster, please submit them below. 
+        <br>
+        <br>
+        The form is anonymous, and does not collect any metadata or other information aside from what you enter.`
     }
     else if(pageCodes.ERROR == options.code){
         doc.getElementById('video-container').remove();
         doc.getElementById('list-container').remove();
         doc.getElementById('affiliates-container').remove();
+        doc.getElementById('feedback-container').remove();
         doc.getElementById('alert-title').innerHTML = options.title;
         doc.getElementById('alert-desc').innerHTML = options.message;
         doc.getElementById('alert-img').src='../img/kaigai_niki_sad.png';
@@ -177,6 +195,12 @@ async function populateAffiliatesPage(logger, req){
     })
 }
 
+async function populateFeedbackPage(logger, req){
+    return await execute(logger, req, {
+        code: pageCodes.FEEDBACK,
+    })
+}
+
 async function populateErrorPage(logger, req, errorTitle, errorMessage){
     logger.error(`ERROR PAGE ${req.path}`);
     return await execute(logger, req, {
@@ -190,4 +214,5 @@ module.exports.populateHomePage = populateHomePage;
 module.exports.populateSearchPage = populateSearchPage;
 module.exports.populateAboutPage = populateAboutPage;
 module.exports.populateAffiliatesPage = populateAffiliatesPage;
+module.exports.populateFeedbackPage = populateFeedbackPage;
 module.exports.populateErrorPage = populateErrorPage;

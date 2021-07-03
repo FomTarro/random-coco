@@ -5,7 +5,7 @@ const path = require('path');
 
 async function setup(){
     const app = express();
-    app.use(express.urlencoded({ extended: true }));
+    app.use(express.urlencoded({ extended: false }));
     app.set('trust proxy', 1);
     app.use(rateLimit({
         windowMs: 15 * 60 * 1000, // 15 minutes
@@ -74,6 +74,28 @@ async function setupRoutes(app){
         const page = await AppConfig.POPULATE_HTML_PAGE.populateAffiliatesPage(logger, req);
         res.status(200).send(page);
     });
+
+    app.get('/feedback', async (req, res) => {
+        const logger = new AppConfig.LOGGER.Logger({path: req.path});
+        const page = await AppConfig.POPULATE_HTML_PAGE.populateFeedbackPage(logger, req);
+        res.status(200).send(page);
+    });
+
+    app.post('/feedback', async (req, res) => {
+        const logger = new AppConfig.LOGGER.Logger({path: req.path});
+        const feedback = await AppConfig.POST_FEEDBACK.postFeedback('api.trello.com', req.body['feedback-name'], req.body['feedback-body'], logger);
+        let page;
+        if(feedback === 200){
+            page = await AppConfig.POPULATE_HTML_PAGE.populateFeedbackPage(logger, req);
+        }else{
+            page = await AppConfig.POPULATE_HTML_PAGE.populateErrorPage(logger, req, 
+                'Error', 
+                'Sorry, something went wrong with feedback submission! Please try again, or go yell at the webmaster on Twitter!');
+        }
+        res.status(feedback).send(page);
+    });
+
+
 
     app.get(['/css*','/js*','/img*', '/audio*'], (req, res) => {
         res.sendFile(path.join(AppConfig.WEB_PUBLIC_DIR, req.path))
